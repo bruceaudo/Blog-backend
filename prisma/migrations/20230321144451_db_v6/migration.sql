@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "Likes" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "like" BOOLEAN NOT NULL DEFAULT false,
+    "postId" INTEGER NOT NULL,
+    "authorId" INTEGER NOT NULL,
+    CONSTRAINT "Likes_postId_fkey" FOREIGN KEY ("postId") REFERENCES "Posts" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "Likes_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "Users" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
